@@ -1,5 +1,5 @@
 // pages/my/my.js
-const baseUrl = 'https://www.hehong.xyz/index.php/api/'
+const baseUrl = 'https://www.domain.com/*****.php/api/'
 const token=require('../../utils/Token');
 
 Page({

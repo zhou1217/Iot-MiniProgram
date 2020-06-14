@@ -4,9 +4,9 @@ var desTopic=null;
 module.exports={
   device:null,
   options:{
-    productKey: 'a1u92QaTQhQ',  //必须是socket合法列表中有才不会报错
-    deviceName: 'ConAliyun',
-    deviceSecret: 'E7tm3aIkwHLvuPkbwwtUQcD8YU6vPFJI',
+    productKey: '*******',  //必须是socket合法列表中有才不会报错
+    deviceName: '*******',
+    deviceSecret: '**********************',
     // 支付宝小程序和微信小程序额外需要配置协议参数
     "protocol": 'alis://',
     "protocol": 'wxs://',   

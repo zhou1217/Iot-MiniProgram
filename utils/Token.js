@@ -1,5 +1,5 @@
 module.exports={
-  baseUrl :'https://www.hehong.xyz/index.php/api/',
+  baseUrl :'https://www.domain.com/****.php/api/',
   token:'',
   islogin:0,
   priDeviceNum:0,

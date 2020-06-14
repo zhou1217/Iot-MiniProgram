@@ -1,7 +1,7 @@
 import mqtt from "mqtt.js"
 var client=null;
 module.exports = {
-  host:'wxs://www.hehong.xyz/mqtt',
+  host:'wxs://www.domain.com/mqtt',
     //client: null,
     //记录重连的次数
   reconnectCounts: 0,
