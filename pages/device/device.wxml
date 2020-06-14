@@ -1,0 +1,41 @@
+<view wx:for="{{switchsNum}}" wx:for-index="i">
+  <text>{{switch[i].alias}}:</text>
+  <switch bindchange="switchChange" id="{{switch[i].which}}" disabled="{{disable}}"></switch>
+</view>
+<view wx:for="{{mydata}}">
+  <text>{{item.alias}}:</text>
+  <text>{{item.did}}</text>
+</view>
+<button bindtap="addAction">添加操作</button>
+
+<block wx:if="{{isShowConfirm}}">
+  <view class="main-box">
+    <view class="toastbg"></view>
+    <view class="toast-box">
+      <view class="top-title">
+        <text>添加操作</text>
+        <text bindtap="cancel">╳</text>
+      </view>
+      <form bindsubmit="Confirm">
+        <view class="picker-area">
+          <picker value="{{index}}" range="{{array}}" name="type" bindchange="bindPickerChange">
+            <view>控制类型:{{array[index]}}</view>
+          </picker>
+        </view>
+        <view class="input-area">
+          <text>控制动作:</text>
+          <input class="inputs" placeholder="输入要控制的操作" name="which"></input>        
+        </view>
+        <view class="input-area">
+          <text>别名:</text>
+          <input class="inputs" placeholder="输入操作别名" name="alias"></input>
+        </view>
+      <view class="bt-area">
+        <button form-type="submit">确定</button>
+      </view>
+      </form>
+    </view>
+  </view>
+</block>
+
+

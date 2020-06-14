@@ -1,0 +1,23 @@
+<view hover-class="hover" class="TopView">
+  <view class="LoginBox" wx:if="{{!hasLogin}}">
+    <image src="../../images/my0.png" class="userinfo-avatar"></image>
+    <button class="LoginWord" size="mini" open-type="getUserInfo" bindgetuserinfo="{{LoginOrReg}}" hover-class="hover">登录/注册</button>
+    <text class="LoginDirect">＞</text>  
+  </view>
+  <view wx:else class="LoginBox" bindtap="userinfo">
+    <image src="{{avatarUrl}}" class="userinfo-avatar"></image>
+    <text class="LoginWord">{{nickname}}</text>
+    <text class="LoginDirect">＞</text>    
+  </view>
+  <view class="DeviceNum">
+    <text class="DeviceText">设备数:{{DeviceNum}}</text>
+    <text class="DeviceText">在线数:{{LiveNum}}</text>
+  </view>
+</view>
+
+<view hover-class="hover" class="SecondView">
+  <image src="../../images/set.png" class="LittleIcon"></image>
+  <text>设置</text>
+  <text class="LoginDirect">＞</text>
+</view>
+

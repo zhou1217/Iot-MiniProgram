@@ -1,0 +1,73 @@
+<button bindtap="bindPriCloud">绑定私有云</button>
+<button bindtap="bindAliCloud">绑定阿里云</button>
+<button bindtap="logout">注销</button>
+
+<block wx:if="{{isShowPriConfirm}}">
+  <view class="main-box">
+    <view class="toastbg"></view>
+    <view class="toast-box">
+      <view class="top-title">
+        <text>绑定私有云</text>
+        <text bindtap="cancel">╳</text>
+      </view>
+      <form bindsubmit="PriConfirm">
+        <view>
+        <view class="input-area">
+          <text>客户身份:</text>
+          <input class="inputs" placeholder="输入clientid" name="clientid"></input>
+        </view>
+        <view class="input-area">
+          <text>用户名:</text>
+          <input class="inputs" placeholder="输入username" name="username"></input>        
+        </view>
+        <view class="input-area">
+          <text>密码:</text>
+          <input class="inputs" placeholder="输入password" password name="password"></input>
+        </view>
+        <view class="input-area">
+          <text>上行主题:</text>
+          <input class="inputs" placeholder="输入uptopic" name="uptopic"></input>
+        </view>
+        </view>
+        <view class="bt-area">
+          <button form-type="submit">确定</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</block>
+
+<block wx:if="{{isShowAliConfirm}}">
+  <view class="main-box">
+    <view class="toastbg"></view>
+    <view class="toast-box">
+      <view class="top-title">
+        <text>绑定阿里云</text>
+        <text bindtap="cancel">╳</text>
+      </view>
+      <form bindsubmit="AliConfirm">
+      <view>
+        <view>
+          <text>产品秘钥:</text>
+          <input class="inputs" placeholder="输入productKey"  name="productkey"></input>
+        </view>
+        <view class="input-area">
+          <text>设备名:</text>
+          <input class="inputs" placeholder="输入deviceName" name="devicename"></input>        
+        </view>
+        <view class="input-area">
+          <text>设备秘钥:</text>
+          <input class="inputs" placeholder="输入deviceSecret" password name="devicesecret"></input>
+        </view>
+        <view class="input-area">
+          <text>上行主题:</text>
+          <input class="inputs" placeholder="输入uptopic" name="uptopic"></input>
+        </view>
+      </view>
+      <view class="bt-area">
+        <button form-type="submit">确定</button>
+      </view>
+      </form>
+    </view>
+  </view>
+</block>

@@ -1,0 +1,160 @@
+<view class="radios">
+<radio-group bindchange="radioChange">
+  <radio value="private" checked="ture">私有设备</radio>
+  <radio value="aliyun">阿里云设备</radio>
+</radio-group>
+</view>
+
+<view wx:if="{{radio==0}}">
+<view>
+  <view wx:for="{{nums}}" class="DeviceBox" wx:for-index="i">
+    <view wx:for="{{3}}" wx:for-index="j" class="device" hover-class="hover" id="{{child[i*3+j].clientid}}" bindlongpress="prilongtap" bindtap="goToDevice">
+      <image src="../../images/device.png"></image>
+      <text>{{child[i*3+j].clientid}}</text>    
+    </view>
+  </view>
+    <view wx:if="{{num==0}}" class="DeviceBox">
+      <view class="device" hover-class="hover" bindtap="addPriDevice">
+        <image src="../../images/add.png"></image>
+        <text>添加</text>
+      </view>
+    </view>
+    <view wx:if="{{num==1}}" class="DeviceBox">
+      <view wx:for="{{num}}" class="device" hover-class="hover" id="{{child[child.length-1].clientid}}" bindlongpress="prilongtap" bindtap="goToDevice">
+        <image src="../../images/device.png"></image>
+        <text>{{child[child.length-1].clientid}}</text>      
+      </view>
+      <view class="device" hover-class="hover" bindtap="addPriDevice">
+        <image src="../../images/add.png"></image>
+        <text>添加</text>
+      </view>    
+      <view class="none"></view>  
+    </view>
+    <view wx:if="{{num==2}}" class="DeviceBox">
+      <view wx:for="{{num}}" class="device" wx:for-index="i" hover-class="hover" id="{{child[child.length-2+i].clientid}}" bindlongpress="prilongtap" bindtap="goToDevice">
+        <image src="../../images/device.png"></image>
+        <text>{{child[child.length-2+i].clientid}}</text>      
+      </view>
+      <view class="device" hover-class="hover" bindtap="addPriDevice">
+        <image src="../../images/add.png"></image>
+        <text>添加</text>
+      </view>        
+    </view>
+</view>
+</view>
+
+<view wx:if="{{radio==1}}">
+<view>
+  <view wx:for="{{devicenums}}" class="DeviceBox" wx:for-index="i">
+    <view wx:for="{{3}}" wx:for-index="j" class="device" hover-class="hover" id="{{devices[i*3+j].devicename}}" bindlongpress="alilongtap" bindtap="goToDevice">
+      <image src="../../images/device.png"></image>
+      <text>{{devices[i*3+j].devicename}}</text>    
+    </view>
+  </view>
+  <view wx:if="{{devicenum==0}}" class="DeviceBox">
+    <view class="device" hover-class="hover" bindtap="addAliDevice">
+      <image src="../../images/add.png"></image>
+      <text>添加</text>
+    </view>
+  </view>
+  <view wx:if="{{devicenum==1}}" class="DeviceBox">
+    <view wx:for="{{devicenum}}" class="device" hover-class="hover" id="{{devices[devices.length-1].devicename}}" bindlongpress="alilongtap" bindtap="goToDevice">
+      <image src="../../images/device.png"></image>
+      <text>{{devices[devices.length-1].devicename}}</text>      
+    </view>
+    <view class="device" hover-class="hover" bindtap="addAliDevice">
+      <image src="../../images/add.png"></image>
+      <text>添加</text>
+    </view>    
+    <view class="none"></view>  
+  </view>
+  <view wx:if="{{devicenum==2}}" class="DeviceBox">
+    <view wx:for="{{devicenum}}" class="device" wx:for-index="i" hover-class="hover" id="{{devices[devices.length-2+i].devicename}}" bindlongpress="alilongtap" bindtap="goToDevice">
+      <image src="../../images/device.png"></image>
+      <text>{{devices[devices.length-2+i].devicename}}</text>      
+    </view>
+    <view class="device" hover-class="hover" bindtap="addAliDevice">
+      <image src="../../images/add.png"></image>
+      <text>添加</text>
+    </view>        
+  </view>
+</view>
+</view>
+
+<block wx:if="{{isShowPriConfirm}}">
+  <view class="main-box">
+    <view class="toastbg"></view>
+    <view class="toast-box">
+      <view class="top-title">
+        <text>添加私有云设备</text>
+        <text bindtap="cancel">╳</text>
+      </view>
+      <form bindsubmit="PriConfirm">
+      <view class="input-area">
+        <view class="input-area">
+          <text>客户身份:</text>
+          <input class="inputs" placeholder="输入clientid" name="clientid"></input>
+        </view>
+        <view class="input-area">
+          <text>用户名:</text>
+          <input class="inputs" placeholder="输入username" name="username"></input>        
+        </view>
+        <view class="input-area">
+          <text>密码:</text>
+          <input class="inputs" placeholder="输入password" password name="password"></input>
+        </view>
+        <view class="input-area">
+          <text>上行主题:</text>
+          <input class="inputs" placeholder="输入uptopic" name="uptopic"></input>
+        </view>
+        <view class="input-area">
+          <text>下行主题:</text>
+          <input class="inputs" placeholder="输入dowtopic" name="downtopic"></input>
+        </view>
+      </view>
+      <view class="bt-area">
+        <button form-type="submit">确定</button>
+      </view>
+      </form>
+    </view>
+  </view>
+</block>
+
+<block wx:if="{{isShowAliConfirm}}">
+  <view class="main-box">
+    <view class="toastbg"></view>
+    <view class="toast-box">
+      <view class="top-title">
+        <text>添加阿里云设备</text>
+        <text bindtap="cancel">╳</text>
+      </view>
+      <form bindsubmit="AliConfirm">
+      <view class="input-area">
+        <view class="input-area">
+          <text>产品秘钥:</text>
+          <input class="inputs" placeholder="输入productkey" name="productkey"></input>
+        </view>
+        <view class="input-area">
+          <text>设备名:</text>
+          <input class="inputs" placeholder="输入devicename" name="devicename"></input>        
+        </view>
+        <view class="input-area">
+          <text>设备秘钥:</text>
+          <input class="inputs" placeholder="输入devicesecret" password name="devicesecret"></input>
+        </view>
+        <view class="input-area">
+          <text>上行主题:</text>
+          <input class="inputs" placeholder="输入uptopic" name="uptopic"></input>
+        </view>
+        <view class="input-area">
+          <text>下行主题:</text>
+          <input class="inputs" placeholder="输入dowtopic" name="downtopic"></input>
+        </view>
+      </view>
+      <view class="bt-area">
+        <button form-type="submit">确定</button>
+      </view>
+      </form>
+    </view>
+  </view>
+</block>
